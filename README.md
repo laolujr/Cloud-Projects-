@@ -70,7 +70,15 @@ I created new `Security Group` called `ALB-SG` and permitted traffic from everyw
 
 I then created another `Security Group` called `SSH-SG` and permited traffic from my IP addrress listening from `SSH port 22`
 
-I then created another `Security Group` called `Webserver-SG` and permited traffic from my IP addrress listening from `SSH port 22` `Http port 80` and `Https port 443` and permitted traffic from  `ALB-SG` and `SSH-SG` 
+I then created another `Security Group` called `Webserver-SG` and permited traffic from my IP addrress listening from `SSH `port `22` `Http port 80` and `Https` port `443` and permitted traffic from  `ALB-SG` and `SSH-SG` 
+
+I then created another `Security Group` called `Database-SG` listening on port `3306` and permiting traffic from only the `Webserver-SG`
+
+Finally I created the `Security Group`  called `EFS-SG` listening fon port `2049` and Port `22` permitting traffic from `Webserver-SG`,`EFS-SG` and `SSH-SG`
+
+### Create RDS Instance
+The next step I took was to create an RDS Instance for my web application and from my refrence architecture I created a `MySQL RDS Instance`
+
 
 
 
