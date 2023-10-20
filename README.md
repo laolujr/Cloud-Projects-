@@ -92,7 +92,7 @@ I then chose an instance class for `Dev-RDS-DB` and it was the free tier `Db.t2.
 
 I pointed `Dev-RDS-DB` to the custom `VPC` for this project `Dev VPC`
 
-I selected the `Database Subnet` I then g
+I selected the `Database Subnet` I then selected the `Database-SG` for my firewall settings I then selected the `us-east-1b` Availability zone to host my Master `Database` 
 
 
 
