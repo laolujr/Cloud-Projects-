@@ -11,4 +11,4 @@ This project has three main components
 
 `Database layer`
 
-https://github.com/laolujr/Cloud-Projects-/assets/29700247/09c2389d-46dc-40f3-ad95-e1b5f92dc990
+![Three-tier web app architecture] (https://github.com/laolujr/Cloud-Projects-/assets/29700247/09c2389d-46dc-40f3-ad95-e1b5f92dc990)
