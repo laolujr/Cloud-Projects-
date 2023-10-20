@@ -62,5 +62,17 @@ I also created `Private Route Table AZ2` for `Private app subnet az2` and `Priva
 
 This way my private subnets can communicate with the internet using via network address translation service of the  `NAT Gateways`  I creted in both  `Public subnet  AZ1` and `Public subnet  AZ2`
 
+### Crerate Security Groups
+To determinte the accessibility to resources in my web application `Security Groups` are the default firewall utility in AWS.
+To create `Security Groups`  for thid application in the AWS management Console, I navigated to  `VPC` and under `Security Groups` 
+
+I created new `Security Group` called `ALB-SG` and permitted traffic from everywhere `0.0.0.0/0` listening on  `Http port 80` and `Https port 443`
+
+I then created another `Security Group` called `SSH-SG` and permited traffic from my IP addrress listening from `SSH port 22`
+
+I then created another `Security Group` called `Webserver-SG` and permited traffic from my IP addrress listening from `SSH port 22` `Http port 80` and `Https port 443` and permitted traffic from  `ALB-SG` and `SSH-SG` 
+
+
+
 
 
