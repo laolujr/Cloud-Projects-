@@ -39,13 +39,13 @@ Finally I associated my `Public-Subnets` to my  `Public-Routetable` to ensure  c
 
 For the second tier which is `Private App Subnet` I created two private  subnets called `Private app az1 ` and `Private App subnet az2`
 I then configured the  private `IPV4-CIDR` for `Private app az1 ` and `Private App subnet az2` 
-For `Private app subnet AZ1` I assigned `IPV4-CIDR` of `10.0.0.2/24` and for `Private app subnet AZ2` `10.0.3.0/24`
 
-and made sure both subnets were attached to `dev-vpc`
+For `Private app subnet AZ1` I assigned `IPV4-CIDR` of `10.0.0.2/24` and for `Private app subnet AZ2` `10.0.3.0/24`
+and made sure both subnets were attached to my custom VPC `dev-vpc`
 
 For the third tier which is `Private data Subnet` I created two private data  subnets called `Private data subnet az1 ` and `Private data subnet az2`
 
-I then configured the  private `IPV4-CIDR` for `Private data az1 ` and `Private data subnet az2`  and made sure both subnets were attached to  my cusom VPC `dev-vpc`
+I then configured the  private `IPV4-CIDR` for `Private data az1 ` and `Private data subnet az2`    for `Private data az1 ` I assigned `IPV4-CIDR`  `10.0.0.4/24`  to `Private data az1 ` and `10.0.0.5/24` to `Private data subnet az2` and made sure both subnets were attached to  my cusom VPC `dev-vpc`
 
-I then created 
-
+I then attached `Private App Subnets` and  `Private data Subnets`  to  the main `Routetable` which was created automatically whem I created 
+`dev-vpc`
