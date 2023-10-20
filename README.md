@@ -11,7 +11,7 @@ This project has three main components
 
 `Database layer`
 
-![Three-tier web app architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/09c2389d-46dc-40f3-ad95-e1b5f92dc990)
+![Three-tier web app architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/3bb803ba-1083-458a-84aa-ab3f38df781e)
 
 ### Login to AWS as an IAm user with priviledges to build your application 
 Login to an `AWS account` using an `Iam user` not a  `Root user` with admin privileges and ensure your region is set to your desired region it is best practise to use a region in which you are situated to avoid latency `us-east-1` `N. Virginia`
