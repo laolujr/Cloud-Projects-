@@ -20,6 +20,7 @@ For high availability we would be replicating every application in two Availabil
 ### Create a VPC,Internet Gateway,Subnets and Routetables.
 The first service we would need is the `VPC`,the `VPC` we create would be the host of every other service we would be using in the creating and deploying our aplication.Below is my refrence architecture for my `VPC` in this project.
 ![VPC_Reference_Architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/6a257e70-ba42-40a8-bf4b-7d854b3f8c85)
+
  I named my `VPC`  and called it `dev-vpc` and I used an `IPV4-CIDR` this would be used for communication of the resources within the `VPC`
  After creating and naming my `VPC` the next step was to create an `Internet Gateway` which is attched to the `VPC` the `Internet Gateway`  is the path way to which components of the web application communicate with the internet.
 After creating the `Internet Gateway`  I attached the `Internet Gateway`  to the `VPC`
