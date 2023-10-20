@@ -23,12 +23,29 @@ The first service we would need is the `VPC`,the `VPC` we create would be the ho
 ![VPC_Reference_Architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/6a257e70-ba42-40a8-bf4b-7d854b3f8c85)
 
  I named my `VPC`  and called it `dev-vpc` and I used an `IPV4-CIDR` this would be used for communication of the resources within the `VPC`
- After creating and naming my `VPC` the next step was to create an `Internet Gateway` which is attched to the `VPC` the `Internet Gateway`  is the path way to which components of the web application communicate with the internet.
-After creating the `Internet Gateway`  I attached the `Internet Gateway`  to the `VPC`
+ After creating and naming my `dev-vpc` the next step was to create an `Internet Gateway` which is attched to the `dev-vpc` the `Internet Gateway`  is the path way to which components of the web application communicate with the internet.
+After creating the `Internet Gateway`  I attached the `Internet Gateway`  to the `dev-vpc`
+
 Next step was to create `Subnets` in my first tier which is my `Public application layer` I  created two Public subnets and called them 
-`Public Az1` in  `us-east-1a` and `Public-Az2` in `us-east-1b`
+`Public subnet  Az1` in  `us-east-1a` and `Public subnet Az2` in `us-east-1b` this is for highavailability and fault tolerance.
+
 I then assigned `IPV4-CIDR` to both `Public-az's` and automated the assigning of `IP address` to my `Public-Subnets`
+
+For `Public subnet  AZ1` I assigned `IPV4-CIDR` of `10.0.0.0/24` and for `Public subnet AZ2` `10.0.1.0/24`
 I then created a `Routetable` which serves as the logic of best routes to the internet between my `Public-Subnets` and attached the `Routetable` to my `VPC`
+
 After attaching my `Public-Routetable` to my  cutom `VPC` I then allowed traffic from anywhere into the `Routetable` by editing routes and allowing trrafic from `0.0.0.0/0` and targeted it towards my custom `Internet Gateway`
 Finally I associated my `Public-Subnets` to my  `Public-Routetable` to ensure  communication.
-For the second tier which is 
+
+For the second tier which is `Private App Subnet` I created two private  subnets called `Private app az1 ` and `Private App subnet az2`
+I then configured the  private `IPV4-CIDR` for `Private app az1 ` and `Private App subnet az2` 
+For `Private app subnet AZ1` I assigned `IPV4-CIDR` of `10.0.0.2/24` and for `Private app subnet AZ2` `10.0.3.0/24`
+
+and made sure both subnets were attached to `dev-vpc`
+
+For the third tier which is `Private data Subnet` I created two private data  subnets called `Private data subnet az1 ` and `Private data subnet az2`
+
+I then configured the  private `IPV4-CIDR` for `Private data az1 ` and `Private data subnet az2`  and made sure both subnets were attached to  my cusom VPC `dev-vpc`
+
+I then created 
+
