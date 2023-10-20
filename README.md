@@ -22,7 +22,7 @@ For high availability we would be replicating every application in two Availabil
 The first service we would need is the `VPC`,the `VPC` we create would be the host of every other service we would be using in the creating and deploying our aplication.Below is my refrence architecture for my `VPC` in this project.
 ![VPC_Reference_Architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/6a257e70-ba42-40a8-bf4b-7d854b3f8c85)
 
- I named my `VPC`  and called it `dev-vpc` and I used an `IPV4-CIDR` this would be used for communication of the resources within the `VPC`
+ I named my `VPC`  and called it `Dev VPC` and I used an `IPV4-CIDR` this would be used for communication of the resources within the `VPC`
  After creating and naming my `dev-vpc` the next step was to create an `Internet Gateway` which is attched to the `dev-vpc` the `Internet Gateway`  is the path way to which components of the web application communicate with the internet.
 After creating the `Internet Gateway`  I attached the `Internet Gateway`  to the `dev-vpc`
 
@@ -41,11 +41,11 @@ For the second tier which is `Private App Subnet` I created two private  subnets
 I then configured the  private `IPV4-CIDR` for `Private app az1 ` and `Private App subnet az2` 
 
 For `Private app subnet AZ1` I assigned `IPV4-CIDR` of `10.0.0.2/24` and for `Private app subnet AZ2` `10.0.3.0/24`
-and made sure both subnets were attached to my custom VPC `dev-vpc`
+and made sure both subnets were attached to my custom VPC  `Dev VPC`
 
 For the third tier which is `Private data Subnet` I created two private data  subnets called `Private data subnet az1 ` and `Private data subnet az2`
 
-I then configured the  private `IPV4-CIDR` for `Private data az1 ` and `Private data subnet az2`    for `Private data az1 ` I assigned `IPV4-CIDR`  `10.0.0.4/24`  to `Private data az1 ` and `10.0.0.5/24` to `Private data subnet az2` and made sure both subnets were attached to  my cusom VPC `dev-vpc`
+I then configured the  private `IPV4-CIDR` for `Private data az1 ` and `Private data subnet az2`    for `Private data az1 ` I assigned `IPV4-CIDR`  `10.0.0.4/24`  to `Private data az1 ` and `10.0.0.5/24` to `Private data subnet az2` and made sure both subnets were attached to  my cusom VPC `Dev VPC`
 
 Automatically `Private App Subnets` and  `Private data Subnets` are atached to  the main `Routetable` by default. The main `routetable` was created automatically whem I created `dev-vpc` thats the custom VPC for this project. It is important to note that the main `routetable` doesn't communicate over the internet.
 
@@ -58,7 +58,7 @@ I then associated `NAT Gateway AZ1` and `NAT Gateway AZ2` to `Public-Routetable`
 
 I then created `Private Route Table AZ1` for `Private app subnet az1` and `Private data subnet  az1`  I added routes `0.0.0.0/0`  and targeted `NAT Gateway AZ1` to ebanle traffic  from my `NAT Gateway AZ1` and created an association between them.
 
-I also created `Private Route Table AZ2` for `Private app subnet az2` and `Private data subnet  az2`  I added routes `0.0.0.0/0` and targeted `NAT Gateway AZ2` to enable traffic from my  `NAT Gateway AZ2` and associated them.
+I also created `Private Route Table AZ2` for `Private app subnet az2` and `Private data subnet  aZ2`  I added routes `0.0.0.0/0` and targeted `NAT Gateway AZ2` to enable traffic from my  `NAT Gateway AZ2` and associated them.
 
 This way my private subnets can communicate with the internet using via network address translation service of the  `NAT Gateways`  I creted in both  `Public subnet  AZ1` and `Public subnet  AZ2`
 
@@ -78,6 +78,7 @@ Finally I created the `Security Group`  called `EFS-SG` listening fon port `2049
 
 ### Create RDS Instance
 The next step I took was to create an RDS Instance for my web application and from my refrence architecture I created a `MySQL RDS Instance`
+In the management console, I went to services and selected `RDS` I then created a new `Subnet Group` called `Database Subnet` within the custom `VPC` `Dev VPC`
 
 
 
