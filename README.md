@@ -47,5 +47,18 @@ For the third tier which is `Private data Subnet` I created two private data  su
 
 I then configured the  private `IPV4-CIDR` for `Private data az1 ` and `Private data subnet az2`    for `Private data az1 ` I assigned `IPV4-CIDR`  `10.0.0.4/24`  to `Private data az1 ` and `10.0.0.5/24` to `Private data subnet az2` and made sure both subnets were attached to  my cusom VPC `dev-vpc`
 
-I then attached `Private App Subnets` and  `Private data Subnets`  to  the main `Routetable` which was created automatically whem I created 
-`dev-vpc`
+Automatically `Private App Subnets` and  `Private data Subnets` are atached to  the main `Routetable` by default. The main `routetable` was created automatically whem I created `dev-vpc` thats the custom VPC for this project. It is important to note that the main `routetable` doesn't communicate over the internet.
+
+### Create NAT Gateways and Private Route Tables.
+
+I created `NAT Gateways` in `Public Subnet AZ1` and `Public Subnet AZ2` 
+
+
+
+
+I then created `Private Route Table AZ1` for `Private app subnet az1` and `Private data subnet  az1` and associated them 
+I also created `Private Route Table AZ2` for `Private app subnet az2` and `Private data subnet  az2` and associated them 
+This way our private subnets can communicate with the internet using the network address translation service of the  `NAT Gateways`  .
+
+
+
