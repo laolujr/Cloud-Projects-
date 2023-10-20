@@ -4,4 +4,4 @@ I leveraged on various cloud services to ensure my application was highly availa
 To start off the deployment of my three-tier web application I designed the web-application architecture to give me a clear picture of what i wanted to create and to avoid mistakes.
 Snapshots of my web application architecture is attached to this project 
 
-![4 Application Architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/09c2389d-46dc-40f3-ad95-e1b5f92dc990)
+(https://github.com/laolujr/Cloud-Projects-/assets/29700247/09c2389d-46dc-40f3-ad95-e1b5f92dc990)
