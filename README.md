@@ -78,8 +78,9 @@ Finally I created the `Security Group`  called `EFS-SG` listening fon port `2049
 
 ### Create RDS Instance
 The next step I took was to create an RDS Instance for my web application and from my refrence architecture I created a `MySQL RDS Instance`
-In the management console, I went to services and selected `RDS` I then created a new `Subnet Group` called `Database Subnet` within the custom `VPC` `Dev VPC`
-
+In the management console, I went to services and selected `RDS` I then created a new `Subnet Group` called `Database Subnet` within the custom `VPC`  the `Dev VPC`
+I also specified the availability zone I wanted to host my `RDS` Instance in `us-east-1a` and `us-east-1b`
+I then specified the preffered Subnet for the  `RDS` Instance to be  `Private data subnet  aZ1`  and  `Private data subnet  aZ2` 
 
 
 
