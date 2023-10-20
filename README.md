@@ -15,4 +15,4 @@ This project has three main components
 
 Login to an `AWS account` using an `Iam user` not a  `rootuser` with admin privileges and ensure your region is set to your desired region it is best practise to use a region in which you are situated to avoid latency `us-east-1` `N. Virginia`
 
-The first service we would need is the `VPC` the `VPC` we create would be the host of every other service we would be using in the aplication.Below is my refrence architecture for my `VPC` in thia project.
+The first service we would need is the `VPC`,the `VPC` we create would be the host of every other service we would be using in the creating and deploying our aplication.Below is my refrence architecture for my `VPC` in this project.
