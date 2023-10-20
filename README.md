@@ -13,8 +13,9 @@ This project has three main components
 
 ![Three-tier web app architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/09c2389d-46dc-40f3-ad95-e1b5f92dc990)
 
-Login to an `AWS account` using an `Iam user` not a  `rootuser` with admin privileges and ensure your region is set to your desired region it is best practise to use a region in which you are situated to avoid latency `us-east-1` `N. Virginia`
-For high availability we would be replicating every application in two Availability zones `us-east1a` and `us-east1b`
+Login to an `AWS account` using an `Iam user` not a  `Root user` with admin privileges and ensure your region is set to your desired region it is best practise to use a region in which you are situated to avoid latency `us-east-1` `N. Virginia`
+For high availability we would be replicating every application in two Availability zones `us-east-1a` and `us-east-1b`
 
 The first service we would need is the `VPC`,the `VPC` we create would be the host of every other service we would be using in the creating and deploying our aplication.Below is my refrence architecture for my `VPC` in this project.
 ![VPC_Reference_Architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/6a257e70-ba42-40a8-bf4b-7d854b3f8c85)
+ I named my `VPC`  and called it `dev-vpc` and I used an `IPV4` `CIDR` 
