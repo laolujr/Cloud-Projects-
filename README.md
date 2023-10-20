@@ -51,14 +51,16 @@ Automatically `Private App Subnets` and  `Private data Subnets` are atached to  
 
 ### Create NAT Gateways and Private Route Tables.
 
-I created `NAT Gateways` in `Public Subnet AZ1` and `Public Subnet AZ2` 
+I created `NAT Gateways` in `Public Subnet AZ1` called  `NAT Gateway AZ1` and `NAT Gateway AZ2`  for `Public Subnet AZ2` 
+I then automatically assigned `Elastic IP addresses` to both `NAT Gateway AZ1` and `NAT Gateway AZ2`  and attached the `NAT Gateways` 
+to `Public subnet  AZ1` and `Public subnet  AZ2` 
+I then associated `NAT Gateway AZ1` and `NAT Gateway AZ2` to `Public-Routetable`
 
+I then created `Private Route Table AZ1` for `Private app subnet az1` and `Private data subnet  az1`  I added routes `0.0.0.0/0`  and targeted `NAT Gateway AZ1` to ebanle traffic  from my `NAT Gateway AZ1` and created an association between them.
 
+I also created `Private Route Table AZ2` for `Private app subnet az2` and `Private data subnet  az2`  I added routes `0.0.0.0/0` and targeted `NAT Gateway AZ2` to enable traffic from my  `NAT Gateway AZ2` and associated them.
 
-
-I then created `Private Route Table AZ1` for `Private app subnet az1` and `Private data subnet  az1` and associated them 
-I also created `Private Route Table AZ2` for `Private app subnet az2` and `Private data subnet  az2` and associated them 
-This way our private subnets can communicate with the internet using the network address translation service of the  `NAT Gateways`  .
+This way my private subnets can communicate with the internet using via network address translation service of the  `NAT Gateways`  I creted in both  `Public subnet  AZ1` and `Public subnet  AZ2`
 
 
 
