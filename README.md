@@ -18,6 +18,7 @@ Login to an `AWS account` using an `Iam user` not a  `Root user` with admin priv
 For high availability we would be replicating every application in two Availability zones `us-east-1a` and `us-east-1b`
 
 ### Create a VPC,Internet Gateway,Subnets and Routetables.
+
 The first service we would need is the `VPC`,the `VPC` we create would be the host of every other service we would be using in the creating and deploying our aplication.Below is my refrence architecture for my `VPC` in this project.
 ![VPC_Reference_Architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/6a257e70-ba42-40a8-bf4b-7d854b3f8c85)
 
@@ -25,6 +26,9 @@ The first service we would need is the `VPC`,the `VPC` we create would be the ho
  After creating and naming my `VPC` the next step was to create an `Internet Gateway` which is attched to the `VPC` the `Internet Gateway`  is the path way to which components of the web application communicate with the internet.
 After creating the `Internet Gateway`  I attached the `Internet Gateway`  to the `VPC`
 Next step was to create `Subnets` in my first tier which is my `Public application layer` I  created two Public subnets and called them 
-`Public-Az1` in  `us-east-1a` and `Public-Az2` in `us-east-1b`
-I then assigned `IPV4-CIDR` to both `Public-az's` and automated the assigning of `Ip
-
+`Public Az1` in  `us-east-1a` and `Public-Az2` in `us-east-1b`
+I then assigned `IPV4-CIDR` to both `Public-az's` and automated the assigning of `IP address` to my `Public-Subnets`
+I then created a `Routetable` which serves as the logic of best routes to the internet between my `Public-Subnets` and attached the `Routetable` to my `VPC`
+After attaching my `Public-Routetable` to my  cutom `VPC` I then allowed traffic from anywhere into the `Routetable` by editing routes and allowing trrafic from `0.0.0.0/0` and targeted it towards my custom `Internet Gateway`
+Finally I associated my `Public-Subnets` to my  `Public-Routetable` to ensure  communication.
+For the second tier which is 
