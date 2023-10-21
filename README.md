@@ -226,6 +226,12 @@ service httpd restart
 ```
 It is important to note that each of the scripts were run secureley in my `Setup Server` one after the other 
 
+I then defined Parameters in my `database`  like and `DB name`, `DB Useername`  `DB host`and `DB password` restarted the `Setup Server` which is common practice when you make significant instalations and changes.
+
+I copied the `Public IPV4` of my `Setup Server` and my website sucessfully opened.
+
+
+
 
 
 
