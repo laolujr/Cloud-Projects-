@@ -217,7 +217,7 @@ nano /var/www/html/wp-config.php
 
 #9. restart the webserver
 
-service httpd restart```
+service httpd restart
 
 
 
