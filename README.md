@@ -97,7 +97,10 @@ I then created an intial `Database`  name called `Application DB`
 I then created the `Database`  after all the needful configurations.
 I saved the configuration `Database endpoint` for my `Database` 
 
-## Create EFS and Mount targets in Database Tier 
+### Create EFS and Mount targets in Database Tier 
+
+The next step in my project was to create an `EFS` so my `Webservers` in both availability zones can share files.
+The point of the `EFS` and `Mount Targets` is to enable my `Webservers`  access configuration code and application file from a shared folder `EFS`.
 
 
 
