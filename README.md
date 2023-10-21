@@ -117,6 +117,9 @@ I verified all my settings and `Dev-EFS` was created.
 
 I then saved the default script to mount `Dev-EFS` to  `Private Data Subnet AZ1` and  `Private Data Subnet AZ2`
 
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0a0241de3c05cbe2f.efs.us-east-1.amazonaws.com:/ efs
+
+
 
 
 
