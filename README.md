@@ -223,6 +223,9 @@ nano /var/www/html/wp-config.php
 
 service httpd restart
 
+```
+It is important to note that each of the scripts were run secureley in my `Setup Server` one after the other 
+
 
 
 
