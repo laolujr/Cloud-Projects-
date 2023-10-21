@@ -230,6 +230,11 @@ I then defined Parameters in my `database`  like and `DB name`, `DB Useername`  
 
 I copied the `Public IPV4` of my `Setup Server` and my website sucessfully opened.
 
+I logged on to my `Website` were i could make changes and design it however I want.
+<img width="1440" alt="Screenshot 2023-10-21 at 10 51 18" src="https://github.com/laolujr/Cloud-Projects-/assets/29700247/6cd80fee-17b3-488d-afb5-50bdb3a3a4b3">
+
+
+
 
 
 
