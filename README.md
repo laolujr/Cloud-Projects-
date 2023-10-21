@@ -160,7 +160,10 @@ InstallWordPress (1).sh
 
 ```
 
-#1. create the html directory and mount the efs to it
+
+
+#1. create the html directory and mount the efs 
+
 sudo su
 yum update -y
 mkdir -p /var/www/html
