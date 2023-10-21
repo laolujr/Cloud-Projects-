@@ -139,6 +139,22 @@ That command smply modifies the fle permission to be read only for owner and no 
 
 ### Launch Setup Server
 The purpose of this sever is to launch `WordPress` in my `Public subnet AZ1`
+I went to the AWS Management Console and under services I created a server called `Setup Server` in `EC2`
+`Setup Server`  ran on `Amazon Linux 2` and had a Keypair `Devkeypair.pem` and firewall settings of `SSH-SG` to Enable Secureshell access to the server where `WordPress`  would be installed the `Webserver-SG` and `ALB-SG` were also selected.
+
+Instance Type was `t2.micro` under free tier and I pointed this `Setup Server`  to `Dev VPC`
+
+I verified all my settings were correct and I launched the `Setup Server`
+
+### SSH into Setup server to install wordpress
+
+I used the command `ssh -i Devkeypair.pem ec2-user@67.145.137.241`
+This command allowed me to securley log into the server now i can install resources into the server by rescources i mean coponents of my website.
+
+### Install Website components Wordpress
+
+Now I had securley connected to `Setup Server` 
+
 
 
 
