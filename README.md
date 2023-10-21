@@ -154,6 +154,8 @@ This command allowed me to securley log into the server now i can install resour
 ### Install Website components Wordpress
 
 Now I had securley connected to `Setup Server` 
+I ran the following scripts to install website components.
+[7._Install_WordPress.txt](https://github.com/laolujr/Cloud-Projects-/files/13060274/7._Install_WordPress.txt)
 
 
 
