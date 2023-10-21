@@ -75,7 +75,7 @@ I then created another `Security Group` called `Webserver-SG` and permited traff
 
 I then created another `Security Group` called `Database-SG` listening on port `3306` and permiting traffic from only the `Webserver-SG`
 
-Finally I created the `Security Group`  called `EFS-SG` listening fon port `2049` and Port `22` permitting traffic from `Webserver-SG`,`EFS-SG` and `SSH-SG`
+Finally I created the `Security Group`  called `EFS-SG` listening from port `2049` and Port `22` permitting traffic from `Webserver-SG`,`EFS-SG` and `SSH-SG`
 
 ### Create RDS Instance
 
@@ -101,6 +101,23 @@ I saved the configuration `Database endpoint` for my `Database`
 
 The next step in my project was to create an `EFS` so my `Webservers` in both availability zones can share files.
 The point of the `EFS` and `Mount Targets` is to enable my `Webservers`  access configuration code and application file from a shared folder `EFS`.
+
+In the AWS management conslole  I went to the `EFS` service and Created a File system.
+
+I called my `EFS` `Dev-EFS` I tagged my `EFS` with the same name  `Dev-EFS` and didn't encrypt my `EFS` due to the project being test project.
+It is best practice to encrypt your `EFS`.
+
+I pointed `Dev-EFS` to `Dev VPC` in the File system network settings.
+
+I also targeted `Dev-EFS` to `Private Data Subnet AZ1` in `us-east-1a` and `Private Data Subnet AZ2` in `us-east-1b`
+
+For the firewall settings in my `Dev-EFS` I selected the `EFS-SG` which listens from port `2049` and Port `22` permitting traffic from `Webserver-SG`,`EFS-SG` and `SSH-SG`
+
+I verified all my settings and `Dev-EFS` was created.
+
+I then saved the default script to mount `Dev-EFS` to  `Private Data Subnet AZ1` and  `Private Data Subnet AZ2`
+
+
 
 
 
