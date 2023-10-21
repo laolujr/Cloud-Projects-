@@ -158,8 +158,9 @@ I ran the following scripts to install website components.
 
 InstallWordPress (1).sh
 
-```#1. create the html directory and mount the efs to it
+```
 
+#1. create the html directory and mount the efs to it
 sudo su
 yum update -y
 mkdir -p /var/www/html
