@@ -117,7 +117,19 @@ I verified all my settings and `Dev-EFS` was created.
 
 I then saved the default script to mount `Dev-EFS` to  `Private Data Subnet AZ1` and  `Private Data Subnet AZ2`
 
-sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0a0241de3c05cbe2f.efs.us-east-1.amazonaws.com:/ efs
+`sudo mount -t nfsxxxxxxx:/ efs`
+
+### Create a Keypair  Mac 
+
+I use a Macbook so I created a `KeyPair` for my OS 
+
+The point of the `KeyPair` is to securley `SSH` into the projects `EC2-Instance`
+
+In the  AWS Management Conslole I went to `EC2` and went to  security to create my `KeyPair`
+
+I created a `KeyPair` and named it `Devkeypair.pem` and Used `RSA` format.
+
+In my computer `Devkeypair.pem` automatically downloaded into the downloads directory i then moved it to my home directory 
 
 
 
