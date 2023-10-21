@@ -129,7 +129,16 @@ In the  AWS Management Conslole I went to `EC2` and went to  security to create 
 
 I created a `KeyPair` and named it `Devkeypair.pem` and Used `RSA` format.
 
-In my computer `Devkeypair.pem` automatically downloaded into the downloads directory i then moved it to my home directory 
+In my computer `Devkeypair.pem` automatically downloaded into the downloads directory i then moved it to my home directory  `Laolujr`
+
+I did this because I would `SSH` from my home directory
+
+I then modified the settings of my `KeyPair`  using rhe `CHMOD 400` command in terminal.
+
+That command smply modifies the fle permission to be read only for owner and no permission for users or groups.
+
+### Launch Setup Server
+The purpose of this sever is to launch `WordPress` in my `Public subnet AZ1`
 
 
 
