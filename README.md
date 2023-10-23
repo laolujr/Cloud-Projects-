@@ -148,7 +148,7 @@ I verified all my settings were correct and I launched the `Setup Server`
 
 ### SSH into Setup server to install wordpress
 
-I used the command `ssh -i Devkeypair.pem ec2-user@67.145.137.241`
+I used the command `ssh -i Devkeypair.pem ec2-user@52.91.41.103`
 This command allowed me to securley log into the server now i can install resources into the server by rescources i mean coponents of my website.
 
 ### Install Website components Wordpress
@@ -232,6 +232,7 @@ I copied the `Public IPV4` of my `Setup Server` and my website sucessfully opene
 
 I logged on to my `Website` were i could make changes and design it however I want.
 <img width="1440" alt="Screenshot 2023-10-21 at 10 51 18" src="https://github.com/laolujr/Cloud-Projects-/assets/29700247/6cd80fee-17b3-488d-afb5-50bdb3a3a4b3">
+
 
 
 
