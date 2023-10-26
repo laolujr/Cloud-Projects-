@@ -323,7 +323,7 @@ After I selected `ALB` I named the `ALB` `Dev-ALB`
 I made sure `Dev-ALB` was internet facing and used `IPv4` which is the IP version my web application uses.
 I ensured `Dev-ALB` was targeted towards `Dev VPC`  and I mapped `Dev-ALB` To my `Public subnet  Az1` in `us-east-1a` and `Public subnet Az2` in `us-east-1b` 
 I then mapped it to my `ALB-SG`
-I ensured my `Dev-ALB` listend to `HTTP` on port `80` and `HTTPS` on Port `443`
+I ensured my `Dev-ALB` listend to `HTTP` on port `80` 
 I finally pointed my `Dev-ALB` to `Dev-TG` and created `ALB-SG`
 I waited for the `Dev-ALB` to become active and successfully accesed my website from`Dev-ALB` `DNS` name
 
@@ -357,6 +357,43 @@ After selecting the `A Record` I pointed my `www.Laolujr7.com`  to the `ALB` `De
 I also pointed my record set to the appropriate `Availability Zone` in `us-east-1 N. Virginia`
 I then created the record
 Aftter doing this I could now acces my webpage using `www.Laolujr7.com`
+
+### Create an HTTPS listner to secure website 
+
+I went to load balancers and under my `Dev-Alb` I added a listner `HTTPS` listening on port `443`  
+I pointed this new listner to my Target group `Dev-TG` 
+I then selected certificates for my domain name to actually secure the website  `www.Laolujr7.com` 
+I then edited  my `HTTP` listner  settings to redirect traffic to `HTTPS` listner
+After doing that, I then saved changes
+I then securley connected to one of my `webservers` to install `SSL` certificates as encryption and decrption key over traffic accessing contents of my website.
+
+I went into `Webserver az2` and ran the following script to install `SSL` certificate.
+
+```
+#CD to root
+
+Sudo su
+
+#Script to access wordpress as admin
+
+nano/var/www/html/wp-config.php
+
+#Edit website security settings
+
+/* SSL Settings */
+define('FORCE_SSL_ADMIN', true);
+
+// Get true SSL status from AWS load balancer
+if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+  $_SERVER['HTTPS'] = '1';
+}
+```
+
+I then saved the settings
+
+Now I can access my website securley.
+
+
 
 
 
