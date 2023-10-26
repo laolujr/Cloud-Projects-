@@ -322,6 +322,18 @@ I Selected `ALB` from the options there was also `NLB` and `GLB`
 After I selected `ALB` I named the `ALB` `Dev-ALB`
 I made sure `Dev-ALB` was internet facing and used `IPv4` which is the IP version my web application uses.
 I ensured `Dev-ALB` was targeted towards `Dev VPC`  and I mapped `Dev-ALB` To my `Public subnet  Az1` in `us-east-1a` and `Public subnet Az2` in `us-east-1b` 
+I then mapped it to my `ALB-SG`
+I ensured my `Dev-ALB` listend to `HTTP` on port `80` and `HTTPS` on Port `443`
+I finally pointed my `Dev-ALB` to `Dev-TG` and created `ALB-SG`
+I waited for the `Dev-ALB` to become active and successfully accesed my website from`Dev-ALB` `DNS` name
+
+The `DNS` name for `Dev-ALB` was `Dev-ALB-1735678594.us-east1.elb.amazonaws.com`
+I then chaged the `DNS` for `WordPress` to `Dev-ALB-1735678594.us-east1.elb.amazonaws.com`
+I did that by signing in to my webapplication using `Dev-ALB-1735678594.us-east1.elb.amazonaws.com/wp-admin`
+I then went into settings of my web application and changed it to `Dev-ALB-1735678594.us-east1.elb.amazonaws.com`
+Finally for this part of my deployment i terminated the `Setup server` as its no longer required
+
+
 
 
 
