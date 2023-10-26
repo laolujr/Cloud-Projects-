@@ -233,6 +233,42 @@ I copied the `Public IPV4` of my `Setup Server` and my website sucessfully opene
 I logged on to my `Website` were i could make changes and design it however I want.
 <img width="1440" alt="Screenshot 2023-10-21 at 10 51 18" src="https://github.com/laolujr/Cloud-Projects-/assets/29700247/6cd80fee-17b3-488d-afb5-50bdb3a3a4b3">
 
+### Create an Application load Balancer
+After sucessfully installing Wordpress, The next thing I did was to create an `ALB` the `ALB` was needed to actually evenly spread inoming traffic amongst private subnets  to ensure no `Webserver` in any `Availability Zone` is over loaded with Traffic.
+
+To create the `ALB` in the Aws management console we first have to launch new `EC2` instances these `EC2` instances would be launched in `Private app subnet az1` and `Private app subnet az2`
+
+
+The `EC2` machine in `Private app subnet az1` leveraged on `Amazon Linux 2` for its `OS` and an instance type of `t2 micro` which is free tier elegible.
+
+I associated this new  `EC2` instance to my network `Dev VPC` and then pointed it to `Private app subnet az1`.
+
+I then wrote a few userdata scripts to run when our machine first launches to install a couple of services on the server
+
+```
+#!/bin/bash
+yum update -y
+sudo yum install -y httpd httpd-tools mod_ssl
+sudo systemctl enable httpd 
+sudo systemctl start httpd
+sudo amazon-linux-extras enable php7.4
+sudo yum clean metadata
+sudo yum install php php-common php-pear -y
+sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip} -y
+sudo rpm -Uvh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+sudo yum install mysql-community-server -y
+sudo systemctl enable mysqld
+sudo systemctl start mysqld
+echo "fs-03c9b3354880b36a6.efs.us-east-1.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+mount -a
+chown apache:apache -R /var/www/html
+sudo service httpd restart
+
+```
+
+
+
 
 
 
