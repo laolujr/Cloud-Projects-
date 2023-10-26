@@ -333,7 +333,7 @@ I did that by signing in to my webapplication using `Dev-ALB-1735678594.us-east1
 I then went into settings of my web application and changed it to `Dev-ALB-1735678594.us-east1.elb.amazonaws.com`
 Finally for this part of my deployment i terminated the `Setup server` as its no longer required
 
-### Register a new Domain Name
+### Registern a domain Name
 I want my endusers to access my webaplication with a `Domain Name` of my choice 
 So in the AWS management console i searched `Route 53` which is the service in AWS that manages `DNS`
 
@@ -346,6 +346,17 @@ and I had to fill in my personal detils to make this purchase while inputing my 
 I then completed the order and had to wait a few minutes to get confirmation my preffered `DNS` had been purchased.
 I eventually got email confirmation my  `Domain Name` `Laolujr7.com` had been registered on the internet which simply means its ready for use.
 
+### Create Record Sets 
+
+After the successful registration of my `Domain Name` `Laolujr7.com`   I need to create `Recordsets` to determine what kind of traffic can access my domain name. 
+
+So to create my new record set I went to `Route 53` and under hosted zones I selected `Laolujr7.com`  and created records there are several records but I only needed the 
+`A Record` which is responsible for routing traffic to an `IPv4` address and several `AWS Rescources`
+
+After selecting the `A Record` I pointed my `www.Laolujr7.com`  to the `ALB` `Dev-Alb`
+I also pointed my record set to the appropriate `Availability Zone` in `us-east-1 N. Virginia`
+I then created the record
+Aftter doing this I could now acces my webpage using `www.Laolujr7.com`
 
 
 
