@@ -393,7 +393,8 @@ I then saved the settings
 
 Now I can access my website securley.
 
-https://user-images.githubusercontent.com/29700247/278394993-7c27bcce-8c15-401a-a8c7-ecf1258ea040.png
+<img width="1440" alt="Screenshot 2023-10-14 at 15 45 53" src="https://github.com/laolujr/Cloud-Projects-/assets/29700247/7c27bcce-8c15-401a-a8c7-ecf1258ea040">
+
 
 
 
