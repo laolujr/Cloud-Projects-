@@ -333,6 +333,20 @@ I did that by signing in to my webapplication using `Dev-ALB-1735678594.us-east1
 I then went into settings of my web application and changed it to `Dev-ALB-1735678594.us-east1.elb.amazonaws.com`
 Finally for this part of my deployment i terminated the `Setup server` as its no longer required
 
+### Register a new Domain Name
+I want my endusers to access my webaplication with a `Domain Name` of my choice 
+So in the AWS management console i searched `Route 53` which is the service in AWS that manages `DNS`
+
+I searched my preffered Domain name which is `Laolujr7.com` and `Route 53`  checked the internet to verify my
+choice `Domain Name` was available.
+
+After confirming the avilability of `Laolujr7.com` I went ahead to purchase the  `Domain Name` at a cost of about $15.00
+and I had to fill in my personal detils to make this purchase while inputing my credentials I enabled encryption to prevent all my private personal data from being accessed.
+
+I then completed the order and had to wait a few minutes to get confirmation my preffered `DNS` had been purchased.
+I eventually got email confirmation my  `Domain Name` `Laolujr7.com` had been registered on the internet which simply means its ready for use.
+
+
 
 
 
