@@ -1,7 +1,8 @@
 # Three-tier web application-
+
 This document would work you through the steps I took in creating a three-tier web application using the AWS Management console.
-I leveraged on various cloud services to ensure my application was highly available,scalable and fault tolerrant.This application was deployed using a mix of click ops and automation or scripting.
-To start off the deployment of my three-tier web application I designed the web-application architecture to give me a clear picture of what i wanted to create and to avoid mistakes.
+I leveraged on various cloud services to ensure my application was highly available,scalable and fault tolerrant.This application was deployed using a mix of click ops and automation.
+To start off the deployment of my three-tier web application I designed the web-application architecture to give me a clear picture of what I wanted to create and to avoid mistakes.
 Snapshots of my web application architecture is attached to this project 
 This project has three main components 
 
@@ -311,8 +312,16 @@ I called the new `Target Groups` `Dev-TG`
 For the `Dev-TG` Settings i enabled `HTTP` listening on `Port 80` 
 For the advanced settings of my my `Dev-TG` I specified Success codes for the `Dev-TG`
 `200`,`301` and `302`
+I then selected the targets for `Dev-TG`  which is `Webserver az1` and `Webserver az2`
+I then created `Dev-TG` 
 
+Now I have `Dev-TG` I can now go ahead and create the `ALB` 
+In the  AWS management console under `Load Balancers`
+I Selected `ALB` from the options there was also `NLB` and `GLB`
 
+After I selected `ALB` I named the `ALB` `Dev-ALB`
+I made sure `Dev-ALB` was internet facing and used `IPv4` which is the IP version my web application uses.
+I ensured `Dev-ALB` was targeted towards `Dev VPC`  and I mapped `Dev-ALB` To my `Public subnet  Az1` in `us-east-1a` and `Public subnet Az2` in `us-east-1b` 
 
 
 
