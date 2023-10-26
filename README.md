@@ -397,7 +397,8 @@ Now I can access my website securley.
 
 I then modified the theme in my website to make it more presentable 
 
-<img width="1440" alt="Screenshot 2023-10-14 at 15 45 53" src="https://github.com/laolujr/Cloud-Projects-/assets/29700247/7c27bcce-8c15-401a-a8c7-ecf1258ea040">
+<img width="1440" alt="Screenshot 2023-10-14 at 15 46 26" src="https://github.com/laolujr/Cloud-Projects-/assets/29700247/7d3fc7a9-e5a7-4710-9ed8-8028be4b29d5">
+
 
 ### Create an ASG
 
