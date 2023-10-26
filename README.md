@@ -265,6 +265,9 @@ mount -a
 chown apache:apache -R /var/www/html
 sudo service httpd restart
 ```
+I then leveraged on default storage and tagged my server `Webserver az1`
+I then associated `Webserver-SG` to `Webserver az1`
+I then launched the `Webserver az1` `EC2` instance 
 
 
 
