@@ -358,6 +358,13 @@ I also pointed my record set to the appropriate `Availability Zone` in `us-east-
 I then created the record
 Aftter doing this I could now acces my webpage using `www.Laolujr7.com`
 
+### Launch a Bastion host 
+I Launched a `Bastion host` to enable me make changes easily in any of my `Private app subnets`
+In the Aws management console under `EC2` 
+I launched a new instance called `Bastion host` usuing `OS` of `Amazon Linux 2` 
+Instance type of `t2.micro` I selected `Devkeypair.pem` and I pointed this `Bastion host`  to `Dev-Vpc` under `Public Subnet AZ1` and for fire wall settings `SSH-SG`
+
+
 ### Create an HTTPS listner to secure website 
 
 I went to load balancers and under my `Dev-Alb` I added a listner `HTTPS` listening on port `443`  
@@ -401,9 +408,45 @@ I then modified the theme in my website to make it more presentable
 
 
 ### Create an ASG
+Finally for fault tolerance we create an `ASG` to scale up in case of heavy traffic and scale down when traffic reduces but before then I terminated the `Webserver AZ1` and `Webserver AZ2`
 
-Finally for fault tolerance we create an `ASG` to scale up in case of heavy traffic and scale down when traffic reduces
+After that I created a `Launch template` that consists of configuration files to automatically launch `EC2` instances so my `ASG` can automatically launch instances to manage the traffic.
 
+I called my `Launch template`  `Dev-LT` And I enabled `ASG` capabilites on `Dev-LT`
+
+I used the `OS Image` `t2.micro`  for `Keypair` `Devkeypair.pem` and Firewall settings `Webserver-SG` after this I ran the following scripts in the USER DATA SECTION 
+
+```
+#!/bin/bash
+yum update -y
+sudo yum install -y httpd httpd-tools mod_ssl
+sudo systemctl enable httpd 
+sudo systemctl start httpd
+sudo amazon-linux-extras enable php7.4
+sudo yum clean metadata
+sudo yum install php php-common php-pear -y
+sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip} -y
+sudo rpm -Uvh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+sudo yum install mysql-community-server -y
+sudo systemctl enable mysqld
+sudo systemctl start mysqld
+echo "fs-xxxxx.efs.us-east-1.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+mount -a
+chown apache:apache -R /var/www/html
+sudo service httpd restart
+```
+
+I then created the `Dev-LT` 
+
+Now I created an `ASG` called `Dev-ASG`  I pointed it to my `Dev-LT`  
+I pointed it to our refrence `VPC` `Dev VPC` and subnet `Private App Subnet AZ1` and `Private App Subnet AZ2`
+I then attached `Dev-ASG` to `Dev-ALB` by pointing it to `Dev TG`
+I enabled metric monitoring by checking the  `Cloud Watch` option and I specified the minimum `1` desired `2` and maximum `4` instances for my `web application`
+
+I then enabled `SNS` to prompt me of important performance metric updates .
+
+Finally I tagged the `ASG` with the name  `ASG Webserver`
 
 
 
