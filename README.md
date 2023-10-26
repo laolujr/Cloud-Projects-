@@ -260,11 +260,10 @@ sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 sudo yum install mysql-community-server -y
 sudo systemctl enable mysqld
 sudo systemctl start mysqld
-echo "fs-03c9b3354880b36a6.efs.us-east-1.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+echo "fs-xxxxx.efs.us-east-1.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
 mount -a
 chown apache:apache -R /var/www/html
 sudo service httpd restart
-
 ```
 
 
