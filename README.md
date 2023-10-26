@@ -395,6 +395,13 @@ Now I can access my website securley.
 
 <img width="1440" alt="Screenshot 2023-10-14 at 15 45 53" src="https://github.com/laolujr/Cloud-Projects-/assets/29700247/7c27bcce-8c15-401a-a8c7-ecf1258ea040">
 
+I then modified the theme in my website to make it more presentable 
+
+<img width="1440" alt="Screenshot 2023-10-14 at 15 45 53" src="https://github.com/laolujr/Cloud-Projects-/assets/29700247/7c27bcce-8c15-401a-a8c7-ecf1258ea040">
+
+### Create an ASG
+
+Finally for fault tolerance we create an `ASG` to scale up in case of heavy traffic and scale down when traffic reduces
 
 
 
