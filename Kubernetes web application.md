@@ -194,5 +194,7 @@ To access my web app through my browser i had to get the external ip adress of m
 ```
 kubectl get SVC
 ```
+![Screenshot 2023-10-31 at 11 20 30](https://github.com/laolujr/Cloud-Projects-/assets/29700247/c638e596-aab8-486d-9144-20dbd10a4ebe)
 
+I then used my node IP address to access my website in browser
 
