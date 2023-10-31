@@ -97,5 +97,102 @@ spec:
 ```
 ### Create `webapplication`
 
+This is the part of our cluster that makes our application publicly accessible on the internet
+I leveraged on the `k8` documentation and called `webapplication` `webapp.yaml` the sysntax is below 
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: nanajanashia/k8s-demo-app:v1.0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: USER_NAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-user
+        - name: USER_PWD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-password 
+        - name: DB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: mongo-url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  type: NodePort
+  selector:
+    app: webapp
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30100
+```
+### Create resources in cluster 
+
+Now i have all the components of my web app ready I need to commit this syntax to my local cluster whis would host the application to do this i ran the following commands in Terminal 
+
+First i created `Congif-map` in my cluster usuing the command 
+```
+Kubectl apply -f  mongo-congig.yaml
+```
+This automatically created `Congif-map` in my cluster 
+
+Second was to create `Secret` in my cluster using the command 
+```
+Kubectl apply -f  mongo-secret.yaml
+```
+This automatically created `secret` in my cluster 
+
+Third I created  `deployment` in my cluster using the command 
+```
+Kubectl apply -f  mongo.yaml
+```
+This automatically created `deployment`  and `service` in my cluster
+
+Finally i created `Web-app` in my cluster using the command 
+```
+Kubectl apply -f  webapp.yaml
+```
+this automatically created `webapp deployment` and `webapp service`
+
+### Verify all components have been successfully applied
+
+I ran a few commands to ensure all my commits were successful to applied to my cluster 
+
+```
+Kubectl get all
+```
+This displayed all components in my cluster
+
+### Access webbapp through browser
+To access my web app through my browser i had to get the external ip adress of my node using the command 
+```
+kubectl get SVC
+```
 
 
