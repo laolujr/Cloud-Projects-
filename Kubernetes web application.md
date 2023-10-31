@@ -11,6 +11,9 @@ For this project the following refrences would be needed in building and deployi
 
 `webapp` image on Docker Hub: https://hub.docker.com/repository/docker/nanajanashia/k8s-demo-app
 
+First thing I  did was to configure my `Kubernetes` components I started by creating a folder in my computer called `K8demo`
+this folder conprised of diffrent files 
+
 
 
 
