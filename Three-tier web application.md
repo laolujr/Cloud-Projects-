@@ -20,7 +20,7 @@ For high availability we would be replicating every application in two Availabil
 
 ### Create a VPC,Internet Gateway,Subnets and Routetables.
 
-The first service we would need is the `VPC`,the `VPC` we create would be the host of every other service we would be using in the creating and deploying our aplication.Below is my refrence architecture for my `VPC` in this project.
+The first service we would need is the `VPC`,the `VPC` we create would be the host of every other service we would be using in the creation and deploymentour aplication.Below is my refrence architecture for my `VPC` in this project.
 ![VPC_Reference_Architecture](https://github.com/laolujr/Cloud-Projects-/assets/29700247/66947cf2-099a-4f53-a590-4308a2c9e33c)
 
 
